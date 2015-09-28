@@ -2,6 +2,16 @@ bin_PROGRAMS = memcached
 pkginclude_HEADERS = protocol_binary.h
 noinst_PROGRAMS = memcached-debug sizes testapp timedrun
 
+#### LTO! ######## 
+ORIG_CFLAGS=$(CFLAGS)
+CFLAGS=-emit-llvm
+memcached_LINK=llvm-link -o $@
+memcached_debug_LINK=llvm-link -o $@
+sizes_LINK=llvm-link -o $@
+testapp_LINK=llvm-link -o $@
+timedrun_LINK=llvm-link -o $@
+################## 
+
 BUILT_SOURCES=
 
 testapp_SOURCES = testapp.c util.c util.h

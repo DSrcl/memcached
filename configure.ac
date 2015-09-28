@@ -593,5 +593,10 @@ then
   CFLAGS="$CFLAGS -errfmt=error -errwarn -errshort=tags"
 fi
 
+########### LLVM LTO ###########
+# we will manually link libevent (in LLVM Bitcode)
+LIBS=
+################################
+
 AC_CONFIG_FILES(Makefile doc/Makefile)
 AC_OUTPUT
