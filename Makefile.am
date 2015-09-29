@@ -4,7 +4,7 @@ noinst_PROGRAMS = memcached-debug sizes testapp timedrun
 
 #### LTO! ######## 
 ORIG_CFLAGS=$(CFLAGS)
-CFLAGS=-emit-llvm
+CFLAGS=-emit-llvm -I$(libevent_dir)
 memcached_LINK=llvm-link -o $@
 memcached_debug_LINK=llvm-link -o $@
 sizes_LINK=llvm-link -o $@

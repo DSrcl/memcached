@@ -288,12 +288,13 @@ AC_CACHE_CHECK([for libevent directory], ac_cv_libevent_dir, [
   LIBS="$saved_LIBS"
   LDFLAGS="$saved_LDFLAGS"
   CPPFLAGS="$saved_CPPFLAGS"
-  if test $le_found = no ; then
-    AC_MSG_ERROR([libevent is required.  You can get it from $LIBEVENT_URL
-
-      If it's already installed, specify its path using --with-libevent=/dir/
-])
-  fi
+# LTO -- We don't need an installation of libevent so we don't care about this here
+#  if test $le_found = no ; then
+#    AC_MSG_ERROR([libevent is required.  You can get it from $LIBEVENT_URL
+#
+#      If it's already installed, specify its path using --with-libevent=/dir/
+#])
+#  fi
 ])
 LIBS="-levent $LIBS"
 if test $ac_cv_libevent_dir != "(system)"; then
